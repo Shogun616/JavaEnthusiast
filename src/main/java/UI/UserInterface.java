@@ -7,23 +7,21 @@ public class UserInterface {
 
     static Scanner scan = new Scanner(System.in);
 
-    public static void options(){
-        boolean exit = true;
-
-        while(exit) {
-            System.out.print("Enter a command: ");
-            String input = scan.nextLine();
-
-            if (input.equalsIgnoreCase("n")) {
-                exit = false;
+    public void options(){
+        {
+            Scanner scanner = new Scanner(System.in);
+            try {
+                System.out.print("Enter command: ");
+                Integer input = scanner.nextInt();
+                System.out.println(input);
                 menu();
-            } else if (input.equalsIgnoreCase("y")) {
-                exit = false;
+            } catch (InputMismatchException ex) {
+                throw new InputMismatchException("Invalid command! Please try again!");
             }
         }
     }
 
-    public static void menu(){
+    public int menu(){
         System.out.println("======================");
         System.out.println("      Main Menu       ");
         System.out.println("======================");
@@ -33,13 +31,12 @@ public class UserInterface {
         System.out.println("3. Search Contact");
         System.out.println("4. Delete Contact");
         System.out.println("\nMake your choice");
+
         int choice = scan.nextInt();
         scan.nextLine();
 
         switch (choice){
             case 0:
-                System.out.println("Exit? (Y/N)");
-                options();
                 System.out.println("Shutting down now!");
                 break;
             case 1:
@@ -52,31 +49,20 @@ public class UserInterface {
               //  break;
             default:
                 System.out.println("Invalid command! Please try again!");
+                menu();
                 break;
         }
-
-    }
-
-    public void enterInteger() {
-        {
-            Scanner scan = new Scanner(System.in);
-            try {
-                System.out.println("Ange en siffra: ");
-                Integer input = scan.nextInt();
-                System.out.println(input);
-            } catch (InputMismatchException ex) {
-                throw new InputMismatchException("Det där är inte en siffra!");
-            }
-        }
+        return choice;
     }
 
     public static void main(String[] args) {
+
         boolean waitingForCorrectInput = true;
 
         while (waitingForCorrectInput) {
             UserInterface ui = new UserInterface();
             try {
-                ui.enterInteger();
+                ui.options();
                 waitingForCorrectInput = false;
             } catch (InputMismatchException ex) {
                 System.out.println(ex.getMessage());
