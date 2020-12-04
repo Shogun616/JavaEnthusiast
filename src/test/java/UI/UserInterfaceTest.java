@@ -32,20 +32,17 @@ public class UserInterfaceTest {
     @RepeatedTest(5)
     void menu(RepetitionInfo repetitionInfo) {
         System.out.println("Running test -> " + repetitionInfo.getCurrentRepetition());
-        assertTrue(true);
     }
 
     @DisplayName("Testing InputMismatchException")
     @Test
-    void verifyInputMismatchExceptionIsThrown(){
-
+    void InputMismatchException(){
         UserInterface ui = new UserInterface();
         String input = "Invalid input";
 
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-
-        assertThrows(InputMismatchException.class, () -> ui.menu());
+        assertThrows(InputMismatchException.class, () -> ui.Input());
     }
 
     @AfterEach

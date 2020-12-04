@@ -22,12 +22,12 @@ public class UserInterface {
         else {
             decision = scan.nextLine();
         }
-        if (decision.equalsIgnoreCase("no")) {
+        if (decision.equalsIgnoreCase("N")) {
             System.out.println("\f");
             menu();
             return false;
 
-        } else if (decision.equalsIgnoreCase("yes")) {
+        } else if (decision.equalsIgnoreCase("Y")) {
 
             if(testing){
                 System.out.println("Shutting down now");
@@ -41,7 +41,7 @@ public class UserInterface {
         return false;
     }
 
-    public static void menu(){
+    public static int menu(){
         System.out.println("======================");
         System.out.println("      Main Menu       ");
         System.out.println("======================");
@@ -50,8 +50,8 @@ public class UserInterface {
         System.out.println("2. Contact List");
         System.out.println("3. Search Contact");
         System.out.println("4. Delete Contact");
-        System.out.println("\nMake your choice");
         try {
+            System.out.println("\nMake your choice");
             int choice = scan.nextInt();
             scan.nextLine();
 
@@ -72,12 +72,25 @@ public class UserInterface {
                     /* ContactClass
                     break; */
                 default:
-                    System.out.println("Invalid command! Please try again!");
+                    System.out.println("Invalid ");
                     break;
             }
         }
         catch (InputMismatchException ex){
-            throw  new InputMismatchException("Invalid command! Please try again!");
+            throw new InputMismatchException(ex + " Invalid command!");
+        }
+        return 1;
+    }
+
+    public void Input(){
+        Scanner scan = new Scanner(System.in);
+        try {
+            System.out.println("Enter a number: ");
+            int input = scan.nextInt();
+            System.out.println(input);
+        }
+        catch (InputMismatchException ex){
+            throw new InputMismatchException("Invalid number");
         }
     }
 
