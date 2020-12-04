@@ -93,8 +93,4 @@ public class UserInterface {
             throw new InputMismatchException("Invalid number");
         }
     }
-
-    public static void main(String[] args) {
-        menu();
-    }
 }
