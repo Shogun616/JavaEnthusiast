@@ -22,12 +22,12 @@ public class UserInterface {
         else {
             decision = scan.nextLine();
         }
-        if (decision.equalsIgnoreCase("N")) {
+        if (decision.equalsIgnoreCase("no")) {
             System.out.println("\f");
             menu();
             return false;
 
-        } else if (decision.equalsIgnoreCase("Y")) {
+        } else if (decision.equalsIgnoreCase("yes")) {
 
             if(testing){
                 System.out.println("Shutting down now");
