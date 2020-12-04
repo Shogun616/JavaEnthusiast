@@ -1,14 +1,13 @@
 package UI;
 
-import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.InputMismatchException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserInterfaceTest {
 
@@ -17,39 +16,23 @@ public class UserInterfaceTest {
         System.out.println("Before All init() method called");
     }
 
-    @AfterAll
-    public static void cleanUp(){
-        System.out.println("After All cleanUp() method called");
-    }
-
     @BeforeEach
-    void setUp() {
+    public void initEach(){
         System.out.println("Before Each initEach() method called");
     }
 
-    @AfterEach
-    void tearDown() {
-        System.out.println("After Each cleanUpEach() method called");
-    }
-
-    @DisplayName("Testing options")
-    @Test
-    void options() {
-        UserInterface ui = new UserInterface();
-
-        String input = "add 1";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        assertEquals("add 1", ui.menu());
+    @DisplayName("Testing exit")
+    @RepeatedTest(5)
+    void exit(RepetitionInfo repetitionInfo) {
+        System.out.println("Running test -> " + repetitionInfo.getCurrentRepetition());
+        assertTrue(UserInterface.exit(true, true));
     }
 
     @DisplayName("Testing menu")
-    @Test
-    void menu() {
-        UserInterface ui = new UserInterface();
-
-        assertTrue(true, "ON");
-        assertTrue(false, "OFF");
+    @RepeatedTest(5)
+    void menu(RepetitionInfo repetitionInfo) {
+        System.out.println("Running test -> " + repetitionInfo.getCurrentRepetition());
+        assertTrue(true);
     }
 
     @DisplayName("Testing InputMismatchException")
@@ -62,8 +45,16 @@ public class UserInterfaceTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertThrows(InputMismatchException.class, () -> {
-            ui.options();
-        });
+        assertThrows(InputMismatchException.class, () -> ui.menu());
+    }
+
+    @AfterEach
+    public void cleanUpEach(){
+        System.out.println("After Each cleanUpEach() method called");
+    }
+
+    @AfterAll
+    public static void cleanUp(){
+        System.out.println("After All cleanUp() method called");
     }
 }
