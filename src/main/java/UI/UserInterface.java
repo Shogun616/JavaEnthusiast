@@ -9,97 +9,104 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-
     static Scanner scan = new Scanner(System.in);
     private static ContactBook contactBook = new ContactBook();
     private static int printCount = 0;
-    public static boolean exit(boolean testing, boolean shutdown){
 
-        String decision;
-        System.out.println("Exit? (yes/no)");
-        if(testing){
-            if(shutdown){
-                decision = "yes";
-            }
-            else {
-                decision = "no";
-            }
-        }
-        else {
-            decision = scan.nextLine();
-        }
-        if (decision.equalsIgnoreCase("no")) {
-            System.out.println("\f");
-            menu();
-            return false;
+    public static boolean exit(boolean testing, boolean execute) {
 
-        } else if (decision.equalsIgnoreCase("yes")) {
+        boolean exit = false;
+        while (!exit) {
+            String decision;
+            System.out.println("Exit? (Y/N)");
 
-            if(testing){
-                System.out.println("Shutting down now");
-                System.out.println("This is a test!");
+            if (testing) {
+                if (execute) {
+                    decision = "Y";
+                    exit = true;
+                } else {
+                    decision = "N";
+                }
+            } else {
+                decision = scan.nextLine();
             }
-            else {
-                System.exit(1);
+            if (decision.equalsIgnoreCase("N")) {
+                System.out.println("\f");
+                menu();
+                return false;
+
+            } else if (decision.equalsIgnoreCase("Y")) {
+
+                if (testing) {
+                    System.out.println("Shutting down now");
+                    System.out.println("This is a test!");
+                } else {
+                    System.exit(1);
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }
 
-    public static int menu(){
-        System.out.println("======================");
-        System.out.println("      Main Menu       ");
-        System.out.println("======================");
-        System.out.println("0. Exit");
-        System.out.println("1. Add Contact");
-        System.out.println("2. Contact List");
-        System.out.println("3. Search Contact");
-        System.out.println("4. Delete Contact");
-        try {
-            System.out.println("\nMake your choice");
-            int choice = scan.nextInt();
-            scan.nextLine();
+    public static void menu() {
 
-            switch (choice){
+        boolean repeat = false;
+
+        while (!repeat) {
+            System.out.println("======================");
+            System.out.println("      Main Menu       ");
+            System.out.println("======================");
+            System.out.println("0. Exit");
+            System.out.println("1. Add Contact");
+            System.out.println("2. Contact List");
+            System.out.println("3. Search Contact");
+            System.out.println("4. Delete Contact");
+
+            int choice = readInteger();
+
+            switch (choice) {
                 case 0:
                     exit(false, false);
                     break;
                 case 1:
-                    /* ContactClass
-                    break; */
-                case 2:
-                    /* ContactClass
-                    break; */
-                case 3:
-                    /* ContactClass
-                    break; */
-                case 4:
-                    /* ContactClass
-                    break; */
-                default:
-                    System.out.println("Invalid ");
+                    add();
                     break;
+                case 2:
+                    Print();
+                    break;
+                case 3:
+                    searchContact();
+                    break;
+                case 4:
+                    deleteContact();
+                    break;
+                default:
+                    System.out.println("Wrong input! Please choose a number between 1 and four.");
             }
         }
-        catch (InputMismatchException ex){
-            throw new InputMismatchException(ex + " Invalid command!");
-        }
-        return 1;
     }
 
-    public void Input(){
-        Scanner scan = new Scanner(System.in);
-        try {
-            System.out.println("Enter a number: ");
-            int input = scan.nextInt();
-            System.out.println(input);
-        }
-        catch (InputMismatchException ex){
-            throw new InputMismatchException("Invalid number");
-        }
-    }
+    public static int readInteger() {
 
+        Boolean loop = true;
+        int tal = 0;
+
+        while (loop) {
+
+            try {
+                System.out.println("\nChoose from menu:");
+                tal = scan.nextInt();
+                loop = false;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong input!Please choose a number between 1 and four.");
+                //throw new InputMismatchException("Wrong input!Please choose a number between 1 and four.");
+            }
+            scan.nextLine();
+        }
+        return tal;
+    }
 
     private static void add() {
         System.out.println("Please enter name and email of the new user");
@@ -123,11 +130,9 @@ public class UserInterface {
         System.out.println("Enter a string to match a contact against: ");
         String matchContact = scan.nextLine();
         contactBook.Search(matchContact);
-
     }
 
     private static void Print() {
-
         printCount++;
         List<Contact> list = contactBook.getList();
         System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒ Print " + printCount + " ▒▒▒▒▒▒▒▒▒▒▒▒");
@@ -141,8 +146,5 @@ public class UserInterface {
         }
 
         System.out.println("-----------------------------------");
-
     }
-
-
 }

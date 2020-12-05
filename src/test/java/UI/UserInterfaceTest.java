@@ -3,7 +3,7 @@ package UI;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.*;
 
@@ -22,27 +22,37 @@ public class UserInterfaceTest {
     }
 
     @DisplayName("Testing exit")
-    @RepeatedTest(5)
-    void exit(RepetitionInfo repetitionInfo) {
-        System.out.println("Running test -> " + repetitionInfo.getCurrentRepetition());
+    @Test
+    void exit() {
         assertTrue(UserInterface.exit(true, true));
     }
 
     @DisplayName("Testing menu")
-    @RepeatedTest(5)
-    void menu(RepetitionInfo repetitionInfo) {
-        System.out.println("Running test -> " + repetitionInfo.getCurrentRepetition());
+    @Test
+    void menu() {
+        String input = "bad input";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        assertThrows(NoSuchElementException.class, () -> {
+            UserInterface.menu();
+        });
     }
 
     @DisplayName("Testing InputMismatchException")
     @Test
-    void InputMismatchException(){
-        UserInterface ui = new UserInterface();
-        String input = "Invalid input";
+    void verifyInputMismatchExceptionIsThrown() {
 
+        //Menu ui = new Menu();
+        String input = "bad input";
+
+        // Här fejkar vi användarinput genom att ändra inputstream från konsolen till variabeln input ovan
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        assertThrows(InputMismatchException.class, () -> ui.Input());
+
+        assertThrows(NoSuchElementException.class, () -> {
+            UserInterface.readInteger();
+        });
+
     }
 
     @AfterEach
