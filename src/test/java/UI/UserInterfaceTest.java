@@ -42,7 +42,6 @@ public class UserInterfaceTest {
     @Test
     void verifyInputMismatchExceptionIsThrown() {
 
-        //Menu ui = new Menu();
         String input = "bad input";
 
         // Här fejkar vi användarinput genom att ändra inputstream från konsolen till variabeln input ovan
