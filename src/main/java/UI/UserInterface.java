@@ -82,7 +82,7 @@ public class UserInterface {
                     deleteContact();
                     break;
                 default:
-                    System.out.println("Wrong input! Please choose a number between 1 and four.");
+                    System.out.println("Wrong input! Please choose a number between 0 and four.");
             }
         }
     }
@@ -100,7 +100,7 @@ public class UserInterface {
                 loop = false;
 
             } catch (InputMismatchException e) {
-                System.out.println("Wrong input!Please choose a number between 1 and four.");
+                System.out.println("Wrong input!Please choose a number between 0 and four.");
                 //throw new InputMismatchException("Wrong input!Please choose a number between 1 and four.");
             }
             scan.nextLine();
