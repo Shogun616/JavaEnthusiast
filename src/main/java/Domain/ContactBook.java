@@ -20,9 +20,7 @@ public class ContactBook {
     }
 
     public void AddContact(String name, String email) {
-
         contacts.add(new Contact(java.util.UUID.randomUUID().toString(), name, email));
-
     }
 
     public void AddContact(Contact contact) {
@@ -110,16 +108,9 @@ public class ContactBook {
         }
     }
 
-
     public void printListOfContacts(List<Contact> listOfContacts) {
         for (Contact contact : listOfContacts) {
             System.out.println(contact.toString());
         }
-
-
     }
-
-
-
-
 }

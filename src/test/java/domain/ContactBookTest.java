@@ -35,7 +35,6 @@ class ContactBookTest {
         Contact contact1 = new Contact(java.util.UUID.randomUUID().toString(), "Philip", "philip@mail.com");
         contactBook.AddContact(contact1);
         assertEquals("Philip", contactBook.getList().get(0).getName());
-
     }
 
     @DisplayName("Testing addContact")
@@ -48,7 +47,6 @@ class ContactBookTest {
         Contact contact3 = new Contact(java.util.UUID.randomUUID().toString(), "Adam", "adam@mail.com");
         Contact contact4 = new Contact(java.util.UUID.randomUUID().toString(), "Sara", "sara@mail.com");
         Contact contact5 = new Contact(java.util.UUID.randomUUID().toString(), "Jessica", "jessica@mail.com");
-
 
         contactBook.AddContact(contact1);
         contactBook.AddContact(contact2);
@@ -67,10 +65,7 @@ class ContactBookTest {
 
         List<Contact> foundContacts = contactBook.getList();
 
-
         assertEquals(addedContacts, foundContacts);
-
-
     }
 
     @DisplayName("Testing removeContact")
@@ -88,13 +83,11 @@ class ContactBookTest {
         contactBook.AddContact("Klarabella", "klarabella@ankeborg.com");
         contactBook.AddContact("Annika", "annika@mailson.com");
 
-
         contactBook.removeContact("Klarabella");
 
         List<Contact> foundContacts = contactBook.getList();
 
         assertEquals(3, foundContacts.size());
-
     }
 
     @DisplayName("Testing searchContact")
@@ -116,7 +109,6 @@ class ContactBookTest {
         System.setOut(oldOut);
         assertTrue(actualOutput.contains("Kalle"));
 
-
         System.out.println(actualOutput);
     }
 
@@ -130,6 +122,4 @@ class ContactBookTest {
     public static void cleanUp() {
         System.out.println("After All cleanUp() method called");
     }
-
-
 }

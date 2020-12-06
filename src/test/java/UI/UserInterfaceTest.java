@@ -28,14 +28,8 @@ public class UserInterfaceTest {
     }
 
     @DisplayName("Testing menu")
-    @Disabled
     @Test
     void menu() {
-        UserInterface ui = new UserInterface();
-        String input ="N";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
     }
 
     @DisplayName("Testing InputMismatchException")
