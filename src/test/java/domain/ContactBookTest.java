@@ -1,8 +1,8 @@
 package Domain;
 
+import org.junit.jupiter.api.*;
 import Domain.Contact;
 import Domain.ContactBook;
-import org.junit.jupiter.api.*;
 import UI.UserInterface;
 
 import java.io.*;

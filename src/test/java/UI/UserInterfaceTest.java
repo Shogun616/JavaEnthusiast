@@ -1,12 +1,12 @@
 package UI;
 
+import org.junit.jupiter.api.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.NoSuchElementException;
-
-import org.junit.jupiter.api.*;
 
 import static java.lang.System.setIn;
 import static org.junit.jupiter.api.Assertions.*;
