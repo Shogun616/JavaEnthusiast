@@ -1,4 +1,4 @@
-package UI;
+package Domain;
 
 import org.junit.jupiter.api.*;
 import Domain.Contact;
@@ -114,7 +114,6 @@ class ContactBookTest {
     @AfterEach
     public void cleanUpEach() {
         System.out.println("After Each cleanUpEach() method called");
-
         //contactBook=null;
     }
 
