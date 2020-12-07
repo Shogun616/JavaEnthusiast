@@ -1,4 +1,4 @@
-package Domain;
+package UI;
 
 import org.junit.jupiter.api.*;
 import Domain.Contact;
