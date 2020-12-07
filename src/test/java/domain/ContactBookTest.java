@@ -30,8 +30,9 @@ class ContactBookTest {
 
         //contactBook = new ContactBook();
     }
-    @DisplayName("Testing addContact")
+
     @Test
+    @DisplayName("Testing addContact")
     void addContactDemo() {
         ContactBook contactBook = new ContactBook();
         Contact contact1 = new Contact(java.util.UUID.randomUUID().toString(), "Philip", "philip@mail.com");
@@ -39,8 +40,8 @@ class ContactBookTest {
         assertEquals("Philip", contactBook.getList().get(0).getName());
     }
 
-    @DisplayName("Testing addContact")
     @Test
+    @DisplayName("Testing addContact")
     void addContactsAndVerify() {
         ContactBook contactBook = new ContactBook();
 
@@ -70,8 +71,8 @@ class ContactBookTest {
         assertEquals(addedContacts, foundContacts);
     }
 
-    @DisplayName("Testing removeContact")
     @Test
+    @DisplayName("Testing removeContact")
     void deleteContact_thenVerifyIsDeleted1() {
         String input = "Y";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -87,8 +88,8 @@ class ContactBookTest {
         assertEquals(1, foundContacts.size());
     }
 
-    @DisplayName("Testing searchContact")
     @Test
+    @DisplayName("Testing searchContact")
     void verifySearchContact() throws Exception {
 
         ContactBook contactBook = new ContactBook();

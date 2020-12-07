@@ -23,14 +23,14 @@ public class UserInterfaceTest {
         System.out.println("Before Each initEach() method called");
     }
 
-    @DisplayName("Testing exit")
     @Test
+    @DisplayName("Testing exit")
     void exit() {
         assertTrue(UserInterface.exit(true, true));
     }
 
-    @DisplayName("Testing menu")
     @Test
+    @DisplayName("Testing menu")
     void menu() {
         UserInterface userInterface = new UserInterface();
         assertTrue(userInterface.equals("0") == false);
@@ -40,8 +40,8 @@ public class UserInterfaceTest {
         assertTrue(userInterface.equals("4") == false);
     }
 
-    @DisplayName("Testing InputMismatchException")
     @Test
+    @DisplayName("Testing InputMismatchException")
     void verifyInputMismatchExceptionIsThrown() {
 
         String input = "bad input";
