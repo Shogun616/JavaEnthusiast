@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class ContactBook {
 
-    static Scanner scan = new Scanner(System.in);
-    private final List<Contact> contacts = new ArrayList<>();
+    Scanner scan = new Scanner(System.in);
+    private  List<Contact> contacts = new ArrayList<>();
 
     public ContactBook() {
     }
@@ -50,7 +50,7 @@ public class ContactBook {
             }
 
         } else {
-            System.out.println("No Contact Found");
+            System.out.println("No Contact Found with '%1$s'%n\", value");
         }
     }
 
@@ -58,7 +58,7 @@ public class ContactBook {
         removeContact(contact.getName());
     }
 
-    public final void Search(String value) {
+    public  void Search(String value) {
         System.out.println(" ");
 
         List<Contact> result = new ArrayList<>();
