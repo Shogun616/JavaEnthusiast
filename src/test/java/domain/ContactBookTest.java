@@ -17,6 +17,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 class ContactBookTest {
 
+//private ContactBook contactBook;
+
+
+
     @BeforeAll
     public static void init() {
         System.out.println("Before All init() method called");
@@ -25,9 +29,9 @@ class ContactBookTest {
     @BeforeEach
     public void initEach() {
         System.out.println("Before Each initEach() method called");
+
+        //contactBook = new ContactBook();
     }
-
-
     @DisplayName("Testing addContact")
     @Test
     void addContactDemo() {
@@ -71,23 +75,19 @@ class ContactBookTest {
     @DisplayName("Testing removeContact")
     @Test
     void deleteContact_thenVerifyIsDeleted1() {
-
         String input = "Y";
-
         InputStream in = new ByteArrayInputStream(input.getBytes());
         setIn(in);
-
         ContactBook contactBook = new ContactBook();
-        contactBook.AddContact("Kalle", "kalle@ankeborg.com");
-        contactBook.AddContact("Kajsa", "kajsa@ankeborg.com");
-        contactBook.AddContact("Klarabella", "klarabella@ankeborg.com");
-        contactBook.AddContact("Annika", "annika@mailson.com");
+        contactBook.AddContact("Sam", "sam@mail.com");
+        contactBook.AddContact("Sammy", "sammy@mail.com");
 
-        contactBook.removeContact("Klarabella");
+
+        contactBook.removeContact("Sam");
 
         List<Contact> foundContacts = contactBook.getList();
 
-        assertEquals(3, foundContacts.size());
+        assertEquals(1, foundContacts.size());
     }
 
     @DisplayName("Testing searchContact")
@@ -113,9 +113,12 @@ class ContactBookTest {
     }
 
 
+
     @AfterEach
     public void cleanUpEach() {
         System.out.println("After Each cleanUpEach() method called");
+
+        //contactBook=null;
     }
 
     @AfterAll
