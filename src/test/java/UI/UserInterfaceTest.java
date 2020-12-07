@@ -1,12 +1,14 @@
 package UI;
 
-
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.*;
 
+import static java.lang.System.setIn;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserInterfaceTest {
@@ -30,6 +32,12 @@ public class UserInterfaceTest {
     @DisplayName("Testing menu")
     @Test
     void menu() {
+        UserInterface userInterface = new UserInterface();
+        assertTrue(userInterface.equals("0") == false);
+        assertTrue(userInterface.equals("1") == false);
+        assertTrue(userInterface.equals("2") == false);
+        assertTrue(userInterface.equals("3") == false);
+        assertTrue(userInterface.equals("4") == false);
     }
 
     @DisplayName("Testing InputMismatchException")
@@ -45,7 +53,6 @@ public class UserInterfaceTest {
         assertThrows(NoSuchElementException.class, () -> {
             UserInterface.readInteger();
         });
-
     }
 
     @AfterEach

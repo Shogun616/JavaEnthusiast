@@ -1,4 +1,4 @@
-package domain;
+package Domain;
 
 import Domain.Contact;
 import Domain.ContactBook;
@@ -18,8 +18,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 class ContactBookTest {
 
 //private ContactBook contactBook;
-
-
 
     @BeforeAll
     public static void init() {
@@ -82,7 +80,6 @@ class ContactBookTest {
         contactBook.AddContact("Sam", "sam@mail.com");
         contactBook.AddContact("Sammy", "sammy@mail.com");
 
-
         contactBook.removeContact("Sam");
 
         List<Contact> foundContacts = contactBook.getList();
@@ -111,7 +108,6 @@ class ContactBookTest {
 
         System.out.println(actualOutput);
     }
-
 
 
     @AfterEach

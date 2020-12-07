@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    static Scanner scan = new Scanner(System.in);
     private static ContactBook contactBook = new ContactBook();
     private static int printCount = 0;
 
@@ -17,6 +16,7 @@ public class UserInterface {
 
         boolean exit = false;
         while (!exit) {
+            Scanner scan = new Scanner(System.in);
             String decision;
             System.out.println("Exit? (Y/N)");
 
@@ -89,6 +89,7 @@ public class UserInterface {
 
     public static int readInteger() {
 
+        Scanner scan = new Scanner(System.in);
         Boolean loop = true;
         int tal = 0;
 
@@ -109,6 +110,7 @@ public class UserInterface {
     }
 
     private static void add() {
+        Scanner scan = new Scanner(System.in);
         System.out.println("Please enter name and email of the new user");
         System.out.print("Name: ");
         String name = scan.nextLine();
@@ -120,6 +122,7 @@ public class UserInterface {
     }
 
     public static void deleteContact() {
+        Scanner scan = new Scanner(System.in);
         System.out.println("Enter name of contact to you want to delete:");
         System.out.println("Name:");
         String name = scan.nextLine();
@@ -127,6 +130,7 @@ public class UserInterface {
     }
 
     private static void searchContact() {
+        Scanner scan = new Scanner(System.in);
         System.out.println("Enter a string to match a contact against: ");
         String matchContact = scan.nextLine();
         contactBook.Search(matchContact);
