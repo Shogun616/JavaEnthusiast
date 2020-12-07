@@ -6,5 +6,3 @@ Philip Mattsson,
 Samir Alsalhani,
 Giorgio Solinas 
 och Biniam Haile Kifle.
-
-1. Kör kommandon mvn package på terminalen.
