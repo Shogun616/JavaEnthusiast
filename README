@@ -1,0 +1,7 @@
+Projekt JavaEnthusiast
+
+Ett Skolprojekt för kursen Javaverktyg & Byggmiljö, som är en del av Javautvecklarutbildningen hos IT-Högskolan.
+Dem inblandade i projektet är: Philip Mattsson, Samir Alsalhani, Giorgio Solinas och Biniam Haile Kifle.
+1. Ladda ner https://github.com/Shogun616/JavaEnthusiast.git på valfritt IDE.
+2. Kör en mvn package på terminalen, för att se att programmet funkar.
+3. Konfiguiera Main-klassen & test-klasserna, för att kunna köra programmet.
