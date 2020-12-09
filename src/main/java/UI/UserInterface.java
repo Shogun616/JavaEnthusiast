@@ -2,6 +2,7 @@ package UI;
 
 import Domain.Contact;
 import Domain.ContactBook;
+import Domain.FileSaving;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -117,6 +118,7 @@ public class UserInterface {
         System.out.print("email:");
         String email = scan.nextLine();
         contactBook.AddContact(name, email);
+        FileSaving.savingToFile(contactBook.getList());
         System.out.println("New contact added successfully!");
         Print();
     }
