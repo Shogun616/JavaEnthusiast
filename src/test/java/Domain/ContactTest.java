@@ -36,8 +36,8 @@ class ContactTest {
 
     @Test
     void setEmail() {
-        c.setEmail("leo.solinas@gmail.com");
-        assertEquals("leo.solinas@gmail.com", c.getEmail());
+        c.setEmail("leo.solinas1@gmail.com");
+        assertEquals("leo.solinas1@gmail.com", c.getEmail());
     }
 
 }
