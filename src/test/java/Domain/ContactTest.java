@@ -14,8 +14,8 @@ class ContactTest {
 
     @Test
     void setId() {
-        c.setId("rt7756dg");
-        assertEquals("rt7756dg",c.getId());
+        c.setId("rt7756d");
+        assertEquals("rt7756d",c.getId());
     }
 
     @Test
