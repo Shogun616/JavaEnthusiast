@@ -19,33 +19,39 @@ class ContactTest {
 
     @Test
     void getId() {
+        System.out.println("Testing gedId");
         assertEquals("fre45t", c.getId());
     }
 
     @Test
     void setId() {
+        System.out.println("Testing setId");
         c.setId("rt7756d");
         assertEquals("rt7756d",c.getId());
     }
 
     @Test
     void getName() {
+        System.out.println("testing getName");
         assertEquals("giorgio solinas", c.getName());
     }
 
     @Test
     void setName() {
+        System.out.println("Testing setName");
         c.setName("Leo Solinas");
         assertEquals("Leo Solinas", c.getName());
     }
 
     @Test
     void getEmail() {
+        System.out.println("Testing getEmail");
         assertEquals("giorgio.solinas@gmail.com", c.getEmail());
     }
 
     @Test
     void setEmail() {
+        System.out.println("Testing setEmail");
         c.setEmail("leo.solinas1@gmail.com");
         assertEquals("leo.solinas1@gmail.com", c.getEmail());
     }
