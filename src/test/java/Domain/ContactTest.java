@@ -1,13 +1,15 @@
 package Domain;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContactTest {
     private Contact c;
+    @BeforeAll
+    static void before(){
+        System.out.println("Useless test that runs before all");
+    }
     @BeforeEach
     void init (){
         System.out.println("Testing instance of contact ");
@@ -46,6 +48,15 @@ class ContactTest {
     void setEmail() {
         c.setEmail("leo.solinas1@gmail.com");
         assertEquals("leo.solinas1@gmail.com", c.getEmail());
+    }
+
+    @AfterEach
+    void afterEachTest(){
+        System.out.println("Useless test that runs after each test");
+    }
+    @AfterAll
+    static void after(){
+        System.out.println("Useless test that runs after all tests");
     }
 
 }
