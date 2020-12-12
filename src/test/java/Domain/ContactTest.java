@@ -1,11 +1,18 @@
 package Domain;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContactTest {
-    Contact c= new Contact("fre45t", "giorgio solinas", "giorgio.solinas@gmail.com");
+    private Contact c;
+    @BeforeEach
+    void init (){
+        c= new Contact("fre45t", "giorgio solinas", "giorgio.solinas@gmail.com");
+    }
+
 
     @Test
     void getId() {
