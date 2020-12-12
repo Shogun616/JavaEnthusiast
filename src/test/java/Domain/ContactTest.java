@@ -10,6 +10,7 @@ class ContactTest {
     private Contact c;
     @BeforeEach
     void init (){
+        System.out.println("Testing instance of contact ");
         c= new Contact("fre45t", "giorgio solinas", "giorgio.solinas@gmail.com");
     }
 
