@@ -8,7 +8,7 @@ Notering: Denna projekt byggdes på Intellij.
 1. Ladda ner https://github.com/Shogun616/JavaEnthusiast.git på valfritt IDE.
 2. På IDE välj File -> New Project from Version control.
 3. Klistra in i URL och tryck på clone/ok(ser till att du har valt git i version control).
-4. Kör en mvn clean install på terminalen, för att det nödnändiga biten av programmet byggs upp.
+4. Kör en mvn clean install på terminalen, för att det nödnändiga biten av programmet ska byggas upp.
 5. Välj Edit/Debug Configuration(mellan den gröna hammern & den gröna pilen) ->
    Configure Main-klassen & test-klasserna, för att göra programmet körbart.
 6. Bygg projektet.
