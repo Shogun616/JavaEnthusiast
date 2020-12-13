@@ -7,9 +7,10 @@ import java.util.List;
 
 
 public class FileSaving {
+    static File file = new File("contacts.txt");
+    static boolean exist= file.exists();
 
     public static String savingToFile(List<Contact> contact) {
-        File file = new File("contacts.txt");
         ContactBook contactBook = new ContactBook();
         List<Contact> contacts = new ArrayList<>();
         contacts = contact;
@@ -41,8 +42,8 @@ public class FileSaving {
                 System.out.println("\n");
                 System.out.println("contact successfully add to file");
             } else
-                System.out.println("contact already exists");
-            objectOutputStream.close();
+                System.out.println("null value can not be saved to file");
+
 
         }
     }
