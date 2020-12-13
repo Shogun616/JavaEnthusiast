@@ -18,12 +18,14 @@ class ContactTest {
 
 
     @Test
+    @DisplayName("Getter for id")
     void getId() {
         System.out.println("Testing gedId");
         assertEquals("fre45t", c.getId());
     }
 
     @Test
+    @DisplayName("Setter for id")
     void setId() {
         System.out.println("Testing setId");
         c.setId("rt7756d");
@@ -31,12 +33,14 @@ class ContactTest {
     }
 
     @Test
+    @DisplayName("Getter for name")
     void getName() {
         System.out.println("testing getName");
         assertEquals("giorgio solinas", c.getName());
     }
 
     @Test
+    @DisplayName("Setter for name")
     void setName() {
         System.out.println("Testing setName");
         c.setName("Leo Solinas");
@@ -44,12 +48,14 @@ class ContactTest {
     }
 
     @Test
+    @DisplayName("Getter for email")
     void getEmail() {
         System.out.println("Testing getEmail");
         assertEquals("giorgio.solinas@gmail.com", c.getEmail());
     }
 
     @Test
+    @DisplayName("Setter for email")
     void setEmail() {
         System.out.println("Testing setEmail");
         c.setEmail("leo.solinas1@gmail.com");
