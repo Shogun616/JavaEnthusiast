@@ -41,7 +41,9 @@ public class FileSavingTest {
     @Test
     @DisplayName("test if file exist")
     public void testIfFileExist(){
+        File file=new File("contacts.txt");
         assertTrue(FileSaving.exist);
+        assertEquals(file,FileSaving.file);
     }
     @Test
     @AfterAll
